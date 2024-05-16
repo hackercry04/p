@@ -26,6 +26,62 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+
+
+  <script type="text/javascript"
+       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function () {
+     emailjs.init("49HFGFpyNv-37Ska5");
+  })();
+</script>
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('submit-form');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from reloading the page
+
+        const formData = new FormData(form);
+        formData.append('service_id', 'service_jhyub6o');
+        formData.append('template_id', 'template_mof36ja');
+        formData.append('user_id', '49HFGFpyNv-37Ska5');
+
+        fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Your mail is sent!');
+            } else {
+                return response.json().then(error => {
+                    throw new Error(JSON.stringify(error));
+                });
+            }
+        })
+        .catch(error => {
+            alert('Oops... ' + error.message);
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+</script>
 </head>
 
 <body>
